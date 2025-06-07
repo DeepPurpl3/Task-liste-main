@@ -1,0 +1,101 @@
+@use "../abstracts/" as *;
+body {
+    background: url(../img/bg.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    background-repeat: no-repeat;
+    color: white;
+    border-top: 5px solid skyblue;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    &::before { 
+        content: "";
+        height: 100%;
+        width: 100%;
+        background: #b43a5f54;
+        background: linear-gradient(194deg,rgba(180, 58, 95, 0.308) 0%, rgba(69, 133, 252, 0.397) 100%);
+        position: absolute;
+        z-index: -1 ;
+    }
+    
+    #title {
+        text-align: end;
+        margin: 1%;
+    }
+
+    #zone {
+        height: 210px;
+        border: 1px solid white;
+        border-radius: 5px;
+        
+        
+    }
+
+    span {
+        color: lightblue    ;
+    }
+}
+main {
+
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    gap: 3rem;
+
+    
+
+
+    #taskcreator {
+        width: 35%;
+        background-color: rgba(0, 0, 0, 0.150);
+        padding: 2rem 5rem;
+        form {
+           display: flex;
+           flex-direction: column;  
+           gap: 1rem;
+        }
+        input {
+            border: 1px solid white;
+            border-radius: 5px;
+            background-color: opacify($color: #00000000, $amount: 0);
+            color: white;
+        }
+
+        h2 {
+            text-align: right;
+        }
+        
+    }
+
+    #tasklist {
+        background-color: rgba(0, 0, 0, 0.150);
+        display: flex;
+        flex-direction: column;
+        width: 35%;
+        left: 5%;
+        padding: 2rem 5rem;
+
+        h2 {
+            text-align: right;
+        }
+
+    }
+
+    button {
+        background-color: #ffffff00;
+        color: white;
+        border-radius: 5px;
+        border: 1px solid white ;
+        margin-top: 2%;
+        height: 40px;
+        
+        &:hover {
+                    background-color: #ffffff48;
+
+        }
+    }
+
+    input {
+        height: 40px;
+    }
+}
