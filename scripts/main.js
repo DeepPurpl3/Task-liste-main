@@ -9,16 +9,19 @@ const addBtn               = document.getElementById("ajouter");
 const triBtn               = document.getElementById("tri");
 const displayDiv           = document.getElementById("displayTask");
 const stockageData         = [];
-
-
-
-
+const showDone             = document.querySelector(".displayDone");
+const solodiv              = document.querySelector(".task-card");
 
 
 
 // ♒♒♒♒♒♒♒♒♒
 // 🧠 Variables globales
 // ♒♒♒♒♒♒♒♒♒
+
+
+
+
+
 
 
 
@@ -52,7 +55,7 @@ function addTask() {
   div.classList.add("task-card"); // à styliser si tu veux
 
   div.innerHTML = `
-    <input type="checkbox" name="" id="">
+    <input type="checkbox" id="checkbox">
     <h3>${taskObj.name}</h3>
     <p> Date ${taskObj.date}</p>
     <p>${taskObj.description}</p>
@@ -71,7 +74,28 @@ function addTask() {
   taskInput.value = "";
   dateInput.value = "";
   descriptionInput.value = "";
+
+  
 }
+
+
+
+// je dois creer une fonction pour mettre mes div checked dans mon conteneur done
+function addToDone() {
+
+  const checkedTasks = document.querySelectorAll(".task-card.checked");
+
+  checkedTasks.forEach(task => {
+  showDone.appendChild(task);
+
+  if ( checkedTasks === "") {
+    alert('Check first')
+  }
+  });
+}
+
+
+
 
 // je vais créer un sauvegarde
 function sauvegarde() {
@@ -79,7 +103,7 @@ function sauvegarde() {
     localStorage.setItem("save",displayDiv.innerHTML);
 }
 
-
+// je dois réafficher la save
 function reDisplay() {
     displayDiv.innerHTML = localStorage.getItem("save")
 }
@@ -100,7 +124,6 @@ addBtn.addEventListener("click",() =>{
 });
 
 
-
 displayDiv.addEventListener('click',function (e) {
     // si je click sur une balise nommée ainsi alors
     if (e.target.closest(".task-card") && e.target.tagName !== "SPAN") {
@@ -109,7 +132,7 @@ displayDiv.addEventListener('click',function (e) {
         sauvegarde();
 
     // si je click sur une balise nommée span alors
-    }else if (e.target.tagName === "SPAN"){
+    } else if (e.target.tagName === "SPAN"){
         //si je le fais sur le span , je lui applique un remove de niveau 5
         e.target.parentElement.remove();
         //je rappelle la save ici
@@ -117,6 +140,12 @@ displayDiv.addEventListener('click',function (e) {
     }
 });
 
-triBtn.addEventListener("click",function (e) {
+
+triBtn.addEventListener("click",function () {
+   event.preventDefault();
+   console.log("j'ai cliqué");
+   addToDone();
+   sauvegarde();
+
    
-})
+});
