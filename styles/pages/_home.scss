@@ -8,12 +8,13 @@ body {
     color: white;
     border-top: 5px solid skyblue;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
     &::before { 
         content: "";
         height: 100%;
         width: 100%;
         background: #b43a5f54;
-        background: linear-gradient(194deg,rgba(180, 58, 95, 0.308) 0%, rgba(69, 133, 252, 0.397) 100%);
+        background: linear-gradient(194deg,rgba(180, 58, 95, 0.24) 0%, rgba(69, 133, 252, 0.171) 100%);
         position: absolute;
         z-index: -1 ;
     }
@@ -64,6 +65,13 @@ main {
         h2 {
             text-align: right;
         }
+
+        #dateTask {
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
         
     }
 
@@ -91,6 +99,7 @@ main {
         
         &:hover {
                     background-color: #ffffff48;
+                    cursor: pointer;
 
         }
     }
@@ -98,4 +107,38 @@ main {
     input {
         height: 40px;
     }
+
+    #displayTask {
+        cursor: pointer;
+
+        
+       
+
+
+        & div {
+            // display: flex;
+            position: relative;
+           
+        }
+        
+
+
+        & span {
+            position: absolute;
+            top: 5%;
+            right: 5%;
+
+            &:hover {
+                background-color: rgba(128, 128, 128, 0.197);
+                border-radius: 50%;
+            }
+        }
+    }
+}
+
+
+
+.task-card.checked {
+  background-color: rgba(255, 228, 196, 0.305);
+  text-decoration: line-through;
 }
