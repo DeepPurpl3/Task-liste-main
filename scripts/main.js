@@ -52,6 +52,7 @@ function addTask() {
   div.classList.add("task-card"); // à styliser si tu veux
 
   div.innerHTML = `
+    <input type="checkbox" name="" id="">
     <h3>${taskObj.name}</h3>
     <p> Date ${taskObj.date}</p>
     <p>${taskObj.description}</p>
